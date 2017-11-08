@@ -10,7 +10,8 @@ class App extends Component {
       lastName: 'Greenwood',
       infoBox: 'Fill in your comments here',
       color: '#ff0000',
-      fontSize: '24px'
+      fontSize: '24px',
+      date: new Date()
     };
   }
 
@@ -35,17 +36,20 @@ class App extends Component {
   }
 
   render() {
-    const { firstName, lastName, color, infoBox, fontSize } = this.state;
+    const { firstName, lastName, color, infoBox, fontSize, date } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-header" date={this.state.date}>
           <h1 className="App-title">Welcome Michele</h1>
+          <p>It is { date.toLocaleTimeString() }</p>
         </header>
         <h1>Michele's React</h1>
+        <p>It is { date.getFullYear() }</p>
         <CommentInput infoBox={infoBox} 
           onCommentChange={comment => this.handleCommentChange(comment)}/>
+          
         <InputName firstName={firstName} lastName={lastName} 
-          color= {color} 
+          color={color} 
           onFirstNameChange={fname => this.handleFirstNameChange(fname)}
           onLastNameChange={lname => this.handleLastNameChange(lname)}
           onColorChange={color => this.handleColorChange(color)}
@@ -132,9 +136,9 @@ class FontSize extends Component {
     return(
       <div>
         <label>
-      Comment size: <input name="font-size" type="font-size" value={fontSize} onChange={({ target }) => onFontSizeChange(target.value)}/>
+      Name size: <input name="font-size" value={fontSize} onChange={({ target }) => onFontSizeChange(target.value)}/>
         </label>
-        <span>{lastName}</span>
+        <span style={{ fontSize }}>{lastName}</span>
       </div>
     );
   }
