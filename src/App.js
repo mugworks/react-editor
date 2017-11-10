@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <h1>Michele's React</h1>
+        <h1>Michele&#39;s React</h1>
         <p>It is { date.getFullYear() }</p>
         <CommentInput infoBox={infoBox} 
           onCommentChange={comment => this.handleCommentChange(comment)}/>
