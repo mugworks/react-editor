@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Header } from './Header';
 
 class App extends Component {
 
@@ -39,15 +40,12 @@ class App extends Component {
     const { firstName, lastName, color, infoBox, fontSize, date } = this.state;
     return (
       <div className="App">
-        <header className="App-header" date={this.state.date}>
-          <h1 className="App-title">Welcome Michele</h1>
-          <p>It is { date.toLocaleTimeString() }</p>
-        </header>
+        <Header/>
         <h1>Michele's React</h1>
         <p>It is { date.getFullYear() }</p>
         <CommentInput infoBox={infoBox} 
           onCommentChange={comment => this.handleCommentChange(comment)}/>
-          
+        
         <InputName firstName={firstName} lastName={lastName} 
           color={color} 
           onFirstNameChange={fname => this.handleFirstNameChange(fname)}
